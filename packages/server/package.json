@@ -1,5 +1,5 @@
 {
-  "name": "server-app",
+  "name": "@saneksa/server-app",
   "private": true,
   "version": "1.0.0",
   "license": "MIT",
