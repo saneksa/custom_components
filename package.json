@@ -1,0 +1,19 @@
+{
+  "name": "custom_components",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "repository": "git@github.com:saneksa/custom_components.git",
+  "author": "Alexandr Petyaykin <saneksa2@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "lerna bootstrap --use-workspaces",
+    "start": "lerna run start --parallel"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
