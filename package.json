@@ -8,10 +8,11 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "lerna bootstrap --use-workspaces",
-    "start": "lerna run start --parallel"
+    "start": "ultra -r start"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "ultra-runner": "3.10.5"
   },
   "workspaces": [
     "packages/*"

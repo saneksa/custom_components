@@ -3,6 +3,12 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 const isProduction = process.env.NODE_ENV == "production";
 
 const stylesHandler = isProduction
@@ -47,7 +53,10 @@ const config = {
   devtool: isProduction ? false : "cheap-module-source-map",
 };
 
-module.exports = () => {
+module.exports = async () => {
+  //чтобы собирался после root-app
+  await sleep(3000);
+
   if (isProduction) {
     config.mode = "production";
 
