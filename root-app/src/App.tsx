@@ -14,13 +14,21 @@ function App() {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const handleClick = useCallback(async () => {
-    const data = await (
-      await fetch("http://localhost:8888/api/components", {
+    try {
+      const response = await fetch("http://localhost:8888/api/components", {
         method: "GET",
-      })
-    ).json();
+      });
 
-    setComponentsConfig(data);
+      if (!response.ok) {
+        const message = await response.text();
+
+        throw new Error(message);
+      }
+
+      setComponentsConfig(await response.json());
+    } catch (error) {
+      console.error(error);
+    }
   }, []);
 
   useAsyncEffect(() => {
