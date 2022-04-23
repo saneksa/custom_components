@@ -1,26 +1,33 @@
 import { Injectable } from '@nestjs/common';
 import fs from 'fs/promises';
 import path from 'path';
+import { isExist } from './utils/utils';
 
 @Injectable()
 export class AppService {
   async getComponents() {
     const pathList = ['..', 'client', 'components'];
-    const components = await fs.readdir(path.resolve(__dirname, ...pathList));
+
+    const componentsPath = path.resolve(__dirname, ...pathList);
 
     const configComponents = [];
 
+    if (!(await isExist(componentsPath))) {
+      return configComponents;
+    }
+
+    const components = await fs.readdir(componentsPath);
+
     for await (const componentName of components) {
-      const manifestPath = path.resolve(
-        __dirname,
-        ...pathList,
-        componentName,
-        'asset-manifest.json',
+      const componentPath = path.resolve(__dirname, ...pathList, componentName);
+
+      const isDirectory = (await fs.stat(componentPath))?.isDirectory();
+
+      const isAvailableIndexFile = await isExist(
+        path.resolve(componentPath, 'index.js'),
       );
 
-      if ((await fs.stat(manifestPath)).isFile()) {
-        const manifest = await fs.readFile(manifestPath, { encoding: 'utf-8' });
-
+      if (isDirectory && isAvailableIndexFile) {
         configComponents.push({
           name: componentName,
           entrypoint: `components/${componentName}/index.js`,
