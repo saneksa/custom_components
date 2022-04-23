@@ -11,10 +11,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        Управление из дочернего компонента:
-      </header>
+    <div className="custom-app">
+      <header className="App-header">Кастомный компонент Bar:</header>
 
       <div>
         <button onClick={increase}>+</button>

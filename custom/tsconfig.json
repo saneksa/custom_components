@@ -14,8 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
-    "sourceMap": true
+    "jsx": "react-jsx"
   },
+  "exclude": ["postcss.config.js", "webpack.config.js"],
   "include": ["src"]
 }
