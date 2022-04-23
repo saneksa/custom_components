@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import { observer } from "mobx-react-lite";
-
+import "./App.css";
 import { useAsyncEffect } from "./hooks/useAsyncEffect";
 import { Counter } from "./store/Counter/Counter";
 
@@ -62,12 +62,16 @@ function App() {
 
   return (
     <div>
-      <header>Counter: {counterState.counter}</header>
-      <div>
-        <button onClick={handleClick}>Запрос компонента</button>
-
-        <div ref={ref}></div>
+      <div className="root-app">
+        <header>Основное приложение</header>
+        <div>
+          <b>Counter: {counterState.counter}</b>
+        </div>
+        <div>
+          <button onClick={handleClick}>Запрос компонентов</button>
+        </div>
       </div>
+      <div ref={ref}></div>
     </div>
   );
 }
