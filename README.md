@@ -8,5 +8,14 @@ $ yarn install
 
 ```bash
 
-$ npm start
+$ yarn start
+
+```
+
+## Open browser
+
+```bash
+
+$ http://localhost:8888
+
 ```
