@@ -1,0 +1,9 @@
+{
+  "name": "@saneksa/types-lib",
+  "version": "1.0.0",
+  "types": "index.d.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "18.0.7"
+  }
+}
