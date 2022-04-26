@@ -1,14 +1,16 @@
-import { useCallback } from "react";
+import React from "react";
 import "./App.css";
 
-function App() {
-  const increase = useCallback(() => {
-    window.im.increase(3);
+function App(props: ICustomComponentsProps) {
+  const increase = React.useCallback(() => {
+    props.increase(3);
   }, []);
 
-  const decrease = useCallback(() => {
-    window.im.decrease(5);
+  const decrease = React.useCallback(() => {
+    props.decrease(5);
   }, []);
+
+  console.warn("update custom component");
 
   return (
     <div className="custom-app">

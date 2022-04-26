@@ -1,10 +1,11 @@
+import React from "react";
+
 declare global {
   interface Window {
+    React: typeof React;
     im: {
-      increase: (count: number) => void;
-      decrease: (count: number) => void;
+      component: ICustomComponents;
     };
-    __WEB_VITALS_POLYFILL__: boolean;
   }
 }
 

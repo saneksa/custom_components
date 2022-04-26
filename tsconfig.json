@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./packages",
+    "rootDir": "./",
+    "target": "ES2015",
+    "lib": ["DOM", "ES2021"],
+    "jsx": "preserve",
+    "strict": true,
+    "noEmit": true,
+    "incremental": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["/node_modules/", "**/node_modules", "**/.*/"]
+}

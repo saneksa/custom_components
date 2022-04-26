@@ -47,6 +47,9 @@ const config = {
       },
     ],
   },
+  externals: {
+    react: "react",
+  },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },

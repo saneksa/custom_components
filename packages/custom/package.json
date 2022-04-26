@@ -12,13 +12,16 @@
     "serve": "webpack serve"
   },
   "dependencies": {
-    "react": "18.0.0",
     "react-dom": "18.0.0",
     "mobx": "6.5.0",
     "mobx-react-lite": "3.3.0"
   },
+  "peerDependencies": {
+    "react": "18.0.0"
+  },
   "devDependencies": {
-    "@types/react": "18.0.6",
+    "@saneksa/types-lib": "1.0.0",
+    "@types/react": "18.0.7",
     "@types/react-dom": "18.0.2",
     "autoprefixer": "10.4.4",
     "mini-css-extract-plugin": "2.6.0",

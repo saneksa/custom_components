@@ -10,7 +10,7 @@ export class AppService {
 
     const componentsPath = path.resolve(__dirname, ...pathList);
 
-    const configComponents = [];
+    const configComponents: any[] = [];
 
     if (!(await isExist(componentsPath))) {
       return configComponents;

@@ -19,7 +19,8 @@
     "lodash.set": "4.3.2"
   },
   "devDependencies": {
-    "@types/react": "18.0.6",
+    "@saneksa/types-lib": "1.0.0",
+    "@types/react": "18.0.7",
     "@types/react-dom": "18.0.2",
     "@types/lodash.set": "4.3.7",
     "autoprefixer": "10.4.4",

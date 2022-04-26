@@ -13,6 +13,14 @@ function App() {
 
   const ref = useRef<HTMLDivElement | null>(null);
 
+  const increase = useCallback(() => {
+    counterState.increase(3);
+  }, []);
+
+  const decrease = useCallback(() => {
+    counterState.decrease(5);
+  }, []);
+
   const handleClick = useCallback(async () => {
     try {
       const response = await fetch("http://localhost:8888/api/components", {
@@ -60,6 +68,8 @@ function App() {
     });
   }, [componentsConfigs]);
 
+  console.warn("update root app");
+
   return (
     <div>
       <div className="root-app">
@@ -72,6 +82,22 @@ function App() {
         </div>
       </div>
       <div ref={ref}></div>
+
+      {Array.from(window.im?.component?.components?.entries()).map(
+        ([name, componentGetter]) => {
+          const Component: React.ComponentType<ICustomComponentsProps> =
+            componentGetter();
+
+          return (
+            <Component
+              key={name}
+              increase={increase}
+              decrease={decrease}
+              counter={counterState.counter}
+            />
+          );
+        }
+      )}
     </div>
   );
 }
